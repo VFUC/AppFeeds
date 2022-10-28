@@ -1,0 +1,45 @@
+{
+    "feedAuthorEmail": "dev@jonas.lol",
+    "outputDir": "feeds/apps",
+    "apps": [
+        {
+            "shortName": "moia",
+            "appstoreId": "1373271535",
+            "countryId": "de"
+        },
+        {
+            "shortName": "hvvswitch",
+            "appstoreId": "1489283392",
+            "countryId": "de"
+        },
+        {
+            "shortName": "hvv",
+            "appstoreId": "501995569",
+            "countryId": "de"
+        },
+        {
+            "shortName": "stadtrad",
+            "appstoreId": "420441561",
+            "countryId": "de"
+        },
+        {
+            "shortName": "zdf",
+            "appstoreId": "437025413",
+            "countryId": "de"
+        },
+        {
+            "shortName": "zdfheute",
+            "appstoreId": "605390815",
+            "countryId": "de"
+        },
+        {
+            "shortName": "didi",
+            "appstoreId": "1362398401",
+            "countryId": "us"
+        }
+    ],
+    "summary": {
+        "outputPath": "current-feeds.md",
+        "baseURL": "https://feeds.jonas.lol/apps"
+    }
+}
