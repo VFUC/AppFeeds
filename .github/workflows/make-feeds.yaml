@@ -2,6 +2,9 @@ name: Make Feeds
 
 on:
   push:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 * * * *' # once per hour at minute 0
   
 jobs:
   make-feeds:
