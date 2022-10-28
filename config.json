@@ -36,6 +36,16 @@
             "shortName": "didi",
             "appstoreId": "1362398401",
             "countryId": "us"
+        },
+        {
+            "shortName": "longplay",
+            "appstoreId": "1495152002",
+            "countryId": "de"
+        },
+        {
+            "shortName": "duolingo",
+            "appstoreId": "570060128",
+            "countryId": "us"
         }
     ],
     "summary": {
