@@ -42,4 +42,6 @@ jobs:
         run: |
           git config --global user.name 'GitHub Action'
           git config --global user.email 'dev@jonas.lol'
-          git add current-feeds.md && git commit -m "[Bot] Update current feed summary" && git push
+          git add current-feeds.md
+          git commit -m "[Bot] Update current feed summary" || echo "No changes to commit"
+          git push
