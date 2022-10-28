@@ -120,7 +120,7 @@ func makeFeedForApp(app App, details AppDetails, config Configuration) *feeds.Fe
 		// fmt.Printf("Release for %s: %q\n\n", release.VersionString, release.ReleaseNotes)
 		feed.Items = append(feed.Items, &feeds.Item{
 			Title:       fmt.Sprintf("App Version %s", release.VersionString),
-			Link:        &feeds.Link{Href: MakeEndpointForApp(app)},
+			Link:        &feeds.Link{Href: MakeEndpointForApp(app) + "#" + release.VersionString},
 			Description: release.ReleaseNotes,
 			Created:     release.ReleaseDate,
 		})
