@@ -9,7 +9,6 @@ import (
 	"log"
 	"net/http"
 	"os"
-	"time"
 
 	"github.com/gorilla/feeds"
 )
@@ -109,14 +108,11 @@ func getAppDetails(app App, storefronts []Storefront) (details AppDetails, err e
 }
 
 func makeFeedForApp(app App, details AppDetails, config Configuration) *feeds.Feed {
-	now := time.Now()
-
 	feed := &feeds.Feed{
 		Title:       fmt.Sprintf("App Updates: %s", details.Name),
 		Link:        &feeds.Link{Href: details.URL},
 		Description: fmt.Sprintf("Feed of App Updates for %s", details.Name),
 		Author:      &feeds.Author{Name: "App Update Bot", Email: config.FeedAuthorEmail},
-		Created:     now,
 	}
 
 	feed.Items = []*feeds.Item{}
