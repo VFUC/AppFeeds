@@ -34,3 +34,11 @@ jobs:
           echo $SYNCED_FILES; \
           aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_CLOUDFRONT_DISTRIBUTION }} --paths /apps/ ; \
           else echo "No changes on sync, no cache invalidation necessary."; fi
+      
+      - name: Push updated summary back to repo
+        run: |
+          git config --global user.name 'GitHub Action'
+          git config --global user.email 'dev@jonas.lol'
+          git add current-feeds.md
+          git commit -m "[Bot] Update current feed summary"
+          git push
