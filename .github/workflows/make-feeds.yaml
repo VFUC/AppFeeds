@@ -1,0 +1,31 @@
+name: Make Feeds
+
+on:
+  push:
+  
+jobs:
+  make-feeds:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+      
+      - name: Build Binary
+        run: go build -o feedmaker
+        
+      - name: Run
+        run: ./feedmaker
+        
+      - name: Configure AWS Credentials for upload
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: eu-central-1
+      
+      - name: Sync to S3 and invalidate Cloudfront distribution if something changed
+        run: |
+          if [ $(aws s3 sync --size-only feeds/ s3://${{ secrets.AWS_S3_BUCKET }} | tee /dev/tty | wc -l) -ne 0 ]; then \
+          aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_CLOUDFRONT_DISTRIBUTION }} --paths /apps/ ; \
+          else echo "No changes on sync, no cache invalidation necessary."; fi
