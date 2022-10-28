@@ -129,8 +129,12 @@ func MakeStorefrontHeader(storefront Storefront) string {
 	return fmt.Sprintf("%s,20", strconv.Itoa(storefront.StorefrontID))
 }
 
+func makeAppFeedName(app App) string {
+	return fmt.Sprintf("%s-%s", app.ShortName, app.CountryId)
+}
+
 func makeBaseOutputPath(app App, config Configuration) string {
-	filename := fmt.Sprintf("%s-%s", app.ShortName, app.CountryId)
+	filename := makeAppFeedName(app)
 	return filepath.Join(config.OutputDirectory, filename)
 }
 
@@ -144,4 +148,15 @@ func makeAtomOutputPath(app App, config Configuration) string {
 
 func makeRssOutputPath(app App, config Configuration) string {
 	return makeBaseOutputPath(app, config) + ".xml"
+}
+
+func MakeFeedURLs(app App, baseURL string) []string {
+	filename := makeAppFeedName(app)
+	feedURL := fmt.Sprintf("%s/%s", baseURL, filename)
+
+	return []string{
+		feedURL + ".json",
+		feedURL + ".atom",
+		feedURL + ".xml",
+	}
 }

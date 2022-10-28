@@ -1,12 +1,14 @@
 package main
 
 import (
+	"bufio"
 	"encoding/json"
 	"flag"
 	"fmt"
 	"io/ioutil"
 	"log"
 	"net/http"
+	"os"
 	"time"
 
 	"github.com/gorilla/feeds"
@@ -28,6 +30,7 @@ func main() {
 		log.Fatalf("Failed to find/parse required storefront mapping file at %s: %s\n", *storefrontPath, err)
 	}
 
+	var appsWithFeeds []App
 	for _, app := range config.Apps {
 		details, err := getAppDetails(app, storefronts)
 
@@ -36,7 +39,12 @@ func main() {
 		} else {
 			feed := makeFeedForApp(app, details, config)
 			writeFeeds(feed, app, config)
+			appsWithFeeds = append(appsWithFeeds, app)
 		}
+	}
+
+	if config.Summary != nil {
+		writeSummaryFile(config, appsWithFeeds)
 	}
 }
 
@@ -123,4 +131,27 @@ func makeFeedForApp(app App, details AppDetails, config Configuration) *feeds.Fe
 	}
 
 	return feed
+}
+
+func writeSummaryFile(config Configuration, appsWithFeeds []App) error {
+
+	file, err := os.Create(config.Summary.OutputPath)
+	if errorOccured(err) {
+		return err
+	}
+
+	writer := bufio.NewWriter(file)
+
+	writer.WriteString("# Current Feeds\n\n")
+	for _, app := range appsWithFeeds {
+		// feed.WriteAtom(writer)
+		// writer.
+		writer.WriteString(fmt.Sprintf("## %s\n", app.ShortName))
+		for _, feedURL := range MakeFeedURLs(app, config.Summary.BaseURL) {
+			writer.WriteString(feedURL + "\n")
+		}
+		writer.WriteString("\n")
+	}
+	writer.Flush()
+	return nil
 }

@@ -7,6 +7,10 @@ type Configuration struct {
 	FeedAuthorEmail string `json:"feedAuthorEmail"`
 	OutputDirectory string `json:"outputDir"`
 	Apps            []App  `json:"apps"`
+	Summary         *struct {
+		OutputPath string `json:"outputPath"`
+		BaseURL    string `json:"baseURL"`
+	} `json:"summary"`
 }
 
 type App struct {
