@@ -29,6 +29,8 @@ jobs:
       
       - name: Sync to S3 and invalidate Cloudfront distribution if something changed
         run: |
-          if [ $(aws s3 sync --size-only feeds/ s3://${{ secrets.AWS_S3_BUCKET }} | tee /dev/tty | wc -l) -ne 0 ]; then \
+          SYNCED_FILES=$( aws s3 sync --size-only feeds/ s3://${{ secrets.AWS_S3_BUCKET }} ); \
+          if [ $(echo $SYNCED_FILES | wc -w) -ne 0 ]; then \
+          echo $SYNCED_FILES; \
           aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_CLOUDFRONT_DISTRIBUTION }} --paths /apps/ ; \
           else echo "No changes on sync, no cache invalidation necessary."; fi
