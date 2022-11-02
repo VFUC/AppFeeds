@@ -55,7 +55,7 @@ If the `summary` configuration is set, a markdown file with published feeds will
 
 ## Adding an App
 
-To get an app's `appstoreId` and `countryId`, lookup it's App Store URL using your favorite search engine.
+To get an app's `appstoreId` and `countryId`, lookup its App Store URL using your favorite search engine.
 
 As an example, if the URL is https://apps.apple.com/us/app/duolingo-language-lessons/id570060128 we can derive
 
