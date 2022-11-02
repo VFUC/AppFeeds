@@ -61,7 +61,7 @@ As an example, if the URL is https://apps.apple.com/us/app/duolingo-language-les
 
 `countryId`: `us`
 
-`appstoreId: 570060128`
+`appstoreId` : `570060128`
 
 ## References 
 
