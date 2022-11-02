@@ -67,4 +67,4 @@ As an example, if the URL is https://apps.apple.com/us/app/duolingo-language-les
 
 I used [this StackOverflow answer](https://stackoverflow.com/questions/12273811/how-do-i-check-my-ios-app-version-history-detail-on-itunesconnect/48098811#48098811) to get JSON-formatted app version histories and [this Gist](https://gist.github.com/BrychanOdlum/2208578ba151d1d7c4edeeda15b4e9b1) to map App Store countries to their "storefrontId's".
 
-
+To generate the feeds, the [feeds](https://github.com/gorilla/feeds) package is being used.
