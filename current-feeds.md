@@ -1,10 +1,5 @@
 # Current Feeds
 
-## moia
-https://feeds.jonas.lol/apps/moia-de.json
-https://feeds.jonas.lol/apps/moia-de.atom
-https://feeds.jonas.lol/apps/moia-de.xml
-
 ## hvvswitch
 https://feeds.jonas.lol/apps/hvvswitch-de.json
 https://feeds.jonas.lol/apps/hvvswitch-de.atom
