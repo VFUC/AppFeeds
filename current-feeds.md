@@ -10,11 +10,6 @@ https://feeds.jonas.lol/apps/hvvswitch-de.json
 https://feeds.jonas.lol/apps/hvvswitch-de.atom
 https://feeds.jonas.lol/apps/hvvswitch-de.xml
 
-## hvv
-https://feeds.jonas.lol/apps/hvv-de.json
-https://feeds.jonas.lol/apps/hvv-de.atom
-https://feeds.jonas.lol/apps/hvv-de.xml
-
 ## stadtrad
 https://feeds.jonas.lol/apps/stadtrad-de.json
 https://feeds.jonas.lol/apps/stadtrad-de.atom
