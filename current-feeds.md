@@ -20,6 +20,11 @@ https://feeds.jonas.lol/apps/stadtrad-de.json
 https://feeds.jonas.lol/apps/stadtrad-de.atom
 https://feeds.jonas.lol/apps/stadtrad-de.xml
 
+## zdf
+https://feeds.jonas.lol/apps/zdf-de.json
+https://feeds.jonas.lol/apps/zdf-de.atom
+https://feeds.jonas.lol/apps/zdf-de.xml
+
 ## zdfheute
 https://feeds.jonas.lol/apps/zdfheute-de.json
 https://feeds.jonas.lol/apps/zdfheute-de.atom
